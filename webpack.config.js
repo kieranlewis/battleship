@@ -3,10 +3,15 @@ const path = require('path');
 
 const config = {
   entry: './src/index.js',
+  devtool: 'inline-source-map',
+  devServer: {
+    static: './dist',
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
+  mode: 'development',
   module: {
     rules: [
       {
