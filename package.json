@@ -13,8 +13,15 @@
     "test": "jest",
     "start": "webpack serve --open"
   },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
+  },
   "dependencies": {},
   "devDependencies": {
+    "@babel/preset-env": "^7.16.11",
+    "babel-jest": "^27.4.6",
     "css-loader": "^6.5.1",
     "eslint": "^8.6.0",
     "eslint-plugin-jest": "^26.0.0",
