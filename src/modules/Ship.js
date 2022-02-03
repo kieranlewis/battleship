@@ -28,8 +28,6 @@ const Ship = (length) => {
     }
 }
 
-
-
 function checkAcceptableSize(length) {
     return length >= 2 && length <= 5;
 }

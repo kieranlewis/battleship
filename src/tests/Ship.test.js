@@ -18,3 +18,23 @@ test('hit the correct position on a ship', () => {
     testShip.hit(1);
     expect(testShip.hitPosition).toStrictEqual([1]);
 })
+
+test('ship cannot be hit in the same place twice', () => {
+    const testShip = Ship(4);
+    testShip.hit(2);
+    testShip.hit(2);
+    expect(testShip.hitPosition).toStrictEqual([2]);
+})
+
+test('ship can be hit in different positions', () => {
+    const testShip = Ship(3);
+    testShip.hit(1);
+    testShip.hit(3);
+    expect(testShip.hitPosition).toStrictEqual([1,3]);
+})
+
+test('ship can not hit a position it wont have', () => {
+    const testShip = Ship(4);
+    testShip.hit(5);
+    expect(testShip.hitPosition).toStrictEqual([]);
+})
