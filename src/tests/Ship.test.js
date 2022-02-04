@@ -38,3 +38,17 @@ test('ship can not hit a position it wont have', () => {
     testShip.hit(5);
     expect(testShip.hitPosition).toStrictEqual([]);
 })
+
+test('ship will be sunk when it is hit in all positions', () => {
+    const testShip = Ship(2);
+    testShip.hit(1);
+    testShip.hit(2);
+    expect(testShip.isSunk()).toBe(true);
+})
+
+test('ship will not be sunk if it is hit the correct amount of times but in the wrong position', () => {
+    const testShip = Ship(2);
+    testShip.hit(2);
+    testShip.hit(2);
+    expect(testShip.isSunk()).toBe(false);
+})

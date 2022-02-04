@@ -8,7 +8,13 @@ const Ship = (length) => {
     }
 
     function isSunk() {
+        if(hitPosition.length !== length) return false;
 
+        for(let i = 1; i <= length; i++) {
+            if(!hitPosition.includes(i)) return false;
+        }
+
+        return true;
     }
 
     function checkAcceptableHit(position) {
