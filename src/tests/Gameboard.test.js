@@ -50,6 +50,5 @@ test('A newly placed ship can not go onto an occupied space', () => {
 
     testBoard.placeShip(testShip1, [0,1]);
     testBoard.placeShip(testShip2, [0,0]);
-    console.log(testBoard.board[0]);
     expect(testBoard.board[0]).toStrictEqual(['','S','S','S','S','','','','','']);
 })
