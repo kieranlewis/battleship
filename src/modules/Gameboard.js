@@ -4,10 +4,19 @@ const Gameboard = () => {
     function placeShip(ship, coords) {
         const [x, y] = coords;
         
-        for(let i = 0; i < ship.length; i++) {
-            board[x][y+i] = 'S';
+        if(_checkShipPlacement(ship, coords)) {
+            for(let i = 0; i < ship.length; i++) {
+                board[x][y+i] = 'S';
+            }
         }
-        //console.log(board);
+    }
+
+    function _checkShipPlacement(ship, coords) {
+        const [x, y] = coords
+        //check ship does not exceed boundary of board
+        if(ship.length + y > 10) return false;
+
+        return true;
     }
 
     function _createEmptyBoard() {
