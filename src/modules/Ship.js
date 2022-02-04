@@ -2,7 +2,7 @@ const Ship = (length) => {
     let hitPosition = [];
 
     function hit(position) {
-        if(checkAcceptableHit(position)) {
+        if(_checkAcceptableHit(position)) {
             hitPosition.push(position);
         }
     }
@@ -17,7 +17,7 @@ const Ship = (length) => {
         return true;
     }
 
-    function checkAcceptableHit(position) {
+    function _checkAcceptableHit(position) {
         return position >= 1 && position <= length && !hitPosition.includes(position)
     }
 
