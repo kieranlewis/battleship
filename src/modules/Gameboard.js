@@ -18,8 +18,8 @@ const Gameboard = () => {
     }
 
     function _checkShipPlacement(ship, coords, alignment) {
-        const [y, x] = coords
-
+        const [y, x] = coords;
+        
         if(alignment == 'horizontal') {
             //check ship does not exceed boundary of board
             if(ship.length + x > 10) return false;

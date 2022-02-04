@@ -56,9 +56,21 @@ test('A newly placed ship can not go onto an occupied space', () => {
 test('can place ships vertically', () => {
     const testBoard = Gameboard();
     const testShip1 = Ship(2);
+    const testShip2 = Ship(3);
 
-    testBoard.placeShip(testShip1, [0,0], 'vertical');
-    console.log(testBoard.board);
-    expect(testBoard.board[0][0]).toBe('S');
-    expect(testBoard.board[1][0]).toBe('S');
+    testBoard.placeShip(testShip1, [0,9], 'vertical');
+    testBoard.placeShip(testShip2, [0,2], 'horizontal');
+
+    expect(testBoard.board[0][9]).toBe('S');
+    expect(testBoard.board[1][9]).toBe('S');
+    expect(testBoard.board[0]).toStrictEqual(['','','S','S','S','','','','','S'])
+})
+
+test('vertical ships cant be placed out of boundary', () => {
+    const testBoard = Gameboard();
+    const testShip = Ship(2);
+
+    testBoard.placeShip(testShip,[9,0], 'vertical');
+
+    expect(testBoard.board[9]).toStrictEqual(['','','','','','','','','','']);
 })
