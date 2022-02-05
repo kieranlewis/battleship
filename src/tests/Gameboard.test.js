@@ -95,22 +95,53 @@ test('board is updated when a ship is missed', () => {
     expect(testBoard.board[0][3]).toBe('M');
 })
 
-test.only('can hit a ship if there is one on the given coordinates', () => {
+test('can hit a ship if there is one on the given coordinates', () => {
     const testBoard = Gameboard();
     const testShip = Ship(2);
 
     testBoard.placeShip(testShip, [0,0], 'horizontal');
     testBoard.receiveAttack([0,1]);
-    
+
     expect(testShip.hitPosition).toStrictEqual([2]);
 })
 
 test('can hit a vertically placed ship', () => {
     const testBoard = Gameboard();
-    const testShip = Ship(2);
+    const testShip = Ship(3);
 
     testBoard.placeShip(testShip, [0,0], 'vertical');
-    testBoard.receiveAttack([1,0]);
+    testBoard.receiveAttack([2,0]);
 
-    expect(testShip.hitPosition).toStrictEqual([2]);
+    expect(testShip.hitPosition).toStrictEqual([3]);
+})
+
+test('report that all ships have been sunk correctly', () => {
+    const testBoard = Gameboard();
+    const testShip1 = Ship(2);
+    const testShip2 = Ship(2);
+
+    testBoard.placeShip(testShip1, [0,0], 'horizontal');
+    testBoard.placeShip(testShip2, [2,2], 'horizontal');
+
+    testBoard.receiveAttack([0,0]);
+    testBoard.receiveAttack([0,1]);
+    testBoard.receiveAttack([2,2]);
+    testBoard.receiveAttack([2,3]);
+
+    expect(testBoard.checkAllShipsSunk()).toBe(true);
+})
+
+test('report that all ships have not been sunk', () => {
+    const testBoard = Gameboard();
+    const testShip1 = Ship(2);
+    const testShip2 = Ship(2);
+
+    testBoard.placeShip(testShip1, [0,0], 'horizontal');
+    testBoard.placeShip(testShip2, [2,2], 'horizontal');
+
+    testBoard.receiveAttack([0,0]);
+    testBoard.receiveAttack([2,2]);
+    testBoard.receiveAttack([2,3]);
+
+    expect(testBoard.checkAllShipsSunk()).toBe(false);
 })

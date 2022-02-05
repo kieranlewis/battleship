@@ -38,6 +38,10 @@ const Gameboard = () => {
         }
     }
 
+    function checkAllShipsSunk() {
+        return _ships.every(ship => ship.ship.isSunk())
+    }
+
     function _checkShipHit(hitCoords) {
         for(let i = 0; i < _ships.length; i++) {
             const currentShip = _ships[i];
@@ -100,7 +104,7 @@ const Gameboard = () => {
             return board;
         },
 
-        placeShip, receiveAttack
+        placeShip, receiveAttack, checkAllShipsSunk
     }
 }
 
