@@ -95,7 +95,7 @@ test('board is updated when a ship is missed', () => {
     expect(testBoard.board[0][3]).toBe('M');
 })
 
-test('can hit a ship if there is one on the given coordinates', () => {
+test.only('can hit a ship if there is one on the given coordinates', () => {
     const testBoard = Gameboard();
     const testShip = Ship(2);
 

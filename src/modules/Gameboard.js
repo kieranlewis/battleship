@@ -26,10 +26,10 @@ const Gameboard = () => {
         const [y, x] = coords;
 
         //check to see if it hits anything
-        console.log(board[y][x], _ships);
         if(board[y][x] == 'S') {
             //find out what ship has been hit
-
+            const [ hitShip, position ] = _checkShipHit(coords);
+            hitShip.hit(position);
             //mark board as a hit
             board[y][x] = 'H';
         } else {
@@ -39,7 +39,30 @@ const Gameboard = () => {
     }
 
     function _checkShipHit(hitCoords) {
+        const [y, x] = hitCoords;
 
+        for(let i = 0; i < _ships.length; i++) {
+            const currentShip = _ships[i];
+            const shipPositions = [];
+
+            if(currentShip.alignment == 'horizontal') {
+                //get all positions that the ship would be in
+                for(let j = 0; j < currentShip.ship.length; j++) {
+                    shipPositions.push([y,x+j]);
+                }
+
+                //compare ship positions with the position of the hit
+                for(let j = 0; j < shipPositions.length; j++) {
+                    if(shipPositions[j].toString() == hitCoords.toString()) {
+                        return [ currentShip.ship, j+1 ];
+                    }
+                }
+            } else {
+
+            }
+        }
+
+        return [];
     }
 
     function _checkShipPlacement(ship, coords, alignment) {
