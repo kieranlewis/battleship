@@ -74,3 +74,33 @@ test('vertical ships cant be placed out of boundary', () => {
 
     expect(testBoard.board[9]).toStrictEqual(['','','','','','','','','','']);
 })
+
+test('board is updated when a ship is hit', () => {
+    const testBoard = Gameboard();
+    const testShip = Ship(2);
+
+    testBoard.placeShip(testShip, [0,0], 'horizontal');
+    testBoard.receiveAttack([0,0]);
+
+    expect(testBoard.board[0][0]).toBe('H');
+})
+
+test('board is updated when a ship is missed', () => {
+    const testBoard = Gameboard();
+    const testShip = Ship(2);
+
+    testBoard.placeShip(testShip, [0,0], 'horizontal');
+    testBoard.receiveAttack([0,3]);
+
+    expect(testBoard.board[0][3]).toBe('M');
+})
+
+test('can hit a ship if there is one on the given coordinates', () => {
+    const testBoard = Gameboard();
+    const testShip = Ship(2);
+
+    testBoard.placeShip(testShip, [0,0], 'horizontal');
+    testBoard.receiveAttack([0,0]);
+
+    expect(testShip.hitPosition).toStrictEqual([1]);
+})
