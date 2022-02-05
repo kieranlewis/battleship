@@ -100,7 +100,17 @@ test.only('can hit a ship if there is one on the given coordinates', () => {
     const testShip = Ship(2);
 
     testBoard.placeShip(testShip, [0,0], 'horizontal');
-    testBoard.receiveAttack([0,0]);
+    testBoard.receiveAttack([0,1]);
+    
+    expect(testShip.hitPosition).toStrictEqual([2]);
+})
 
-    expect(testShip.hitPosition).toStrictEqual([1]);
+test('can hit a vertically placed ship', () => {
+    const testBoard = Gameboard();
+    const testShip = Ship(2);
+
+    testBoard.placeShip(testShip, [0,0], 'vertical');
+    testBoard.receiveAttack([1,0]);
+
+    expect(testShip.hitPosition).toStrictEqual([2]);
 })
