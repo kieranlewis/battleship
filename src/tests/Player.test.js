@@ -1,6 +1,6 @@
 import { Gameboard } from "../modules/Gameboard";
 import { Ship } from "../modules/Ship";
-import { Player, ComputerAI } from "../modules/Player";
+import { Player } from "../modules/Player";
 
 test('players can attack the enemy gameboard (1)', () => {
     const testBoard = Gameboard();
