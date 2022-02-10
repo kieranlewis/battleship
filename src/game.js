@@ -1,14 +1,14 @@
 import { Gameboard } from "./modules/Gameboard";
 import { Ship } from "./modules/Ship";
 import { Player } from "./modules/Player";
-import { render } from "./modules/domManipulation";
+import { render, renderNew } from "./modules/domManipulation";
 
 const game = (() => {
     function init() {
         const playerBoard = Gameboard();
         const cpuBoard = Gameboard();
-        const player = Player('Kieran');
-        const cpu = Player('Computer');
+        const player1 = Player('Kieran');
+        const player2 = Player('Computer');
     
         const playerShip1 = Ship(2);
         const playerShip2 = Ship(3);
@@ -21,8 +21,9 @@ const game = (() => {
         cpuBoard.placeShip(cpuShip1, [0,0], 'vertical');
         cpuBoard.placeShip(cpuShip2, [2,2], 'horizontal');
 
-        render(playerBoard, 1);
-        render(cpuBoard, 2);
+        render(playerBoard, cpuBoard);
+
+        //event listeners
     }
 
     return {

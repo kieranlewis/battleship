@@ -3,7 +3,7 @@ h1 {
   background-color: black;
 }
 
-#app {
+.game {
   display: flex;
   flex-direction: row;
 }
