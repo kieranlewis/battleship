@@ -2,3 +2,14 @@ h1 {
   color: white;
   background-color: black;
 }
+
+.player1-board, .player2-board {
+  display: grid;
+  width: 350px;
+  height: 350px;
+  grid-template-columns: repeat(10, 1fr);
+}
+
+.grid-item {
+  border: 1px solid black;
+}
