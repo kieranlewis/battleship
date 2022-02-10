@@ -3,13 +3,23 @@ h1 {
   background-color: black;
 }
 
+#app {
+  display: flex;
+  flex-direction: row;
+}
+
 .player1-board, .player2-board {
   display: grid;
   width: 350px;
   height: 350px;
   grid-template-columns: repeat(10, 1fr);
+  margin: 1rem;
 }
 
 .grid-item {
+  display: flex;
   border: 1px solid black;
+  height: 35px;
+  width: 35px;
+  justify-content: center;
 }

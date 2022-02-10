@@ -18,11 +18,11 @@ const game = (() => {
         playerBoard.placeShip(playerShip1, [0,0], 'horizontal');
         playerBoard.placeShip(playerShip2, [2,2], 'vertical');
 
-        cpuBoard.placeShip(cpuShip1, [0,0], 'horizontal');
-        cpuBoard.placeShip(cpuShip2, [2,2], 'vertical');
+        cpuBoard.placeShip(cpuShip1, [0,0], 'vertical');
+        cpuBoard.placeShip(cpuShip2, [2,2], 'horizontal');
 
-        render(playerBoard);
-        //render(cpuBoard);
+        render(playerBoard, 1);
+        render(cpuBoard, 2);
     }
 
     return {
