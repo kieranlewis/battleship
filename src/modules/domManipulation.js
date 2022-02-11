@@ -12,7 +12,9 @@ function renderBoards(playerBoard) {
             playerDiv.setAttribute('class', 'grid-item');
             playerDiv.setAttribute('data-coord', `${i},${j}`);
             playerDiv.setAttribute('data-player', true);
-            playerDiv.innerText = playerBoard[i][j];
+
+            if(playerBoard[i][j] === 'S') playerDiv.classList.add('ship');
+            //playerDiv.innerText = playerBoard[i][j];
 
             cpuDiv.setAttribute('class', 'grid-item');
             cpuDiv.setAttribute('data-coord', `${i},${j}`);
@@ -29,7 +31,9 @@ function renderBoards(playerBoard) {
 function updateBoard(gameBoard, coords, player) {
     const [y, x] = coords;
     const div = document.querySelector(`[data-player=${!player}][data-coord="${y},${x}"]`)
-    div.innerText = gameBoard[y][x];
+
+    if(gameBoard[y][x] === 'H') div.classList.add('hit');
+    else if(gameBoard[y][x] === 'M') div.classList.add('miss');
 }
 
 export { renderBoards, updateBoard }
