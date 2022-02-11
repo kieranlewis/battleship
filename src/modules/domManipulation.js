@@ -14,7 +14,6 @@ function renderBoards(playerBoard) {
             playerDiv.setAttribute('data-player', true);
 
             if(playerBoard[i][j] === 'S') playerDiv.classList.add('ship');
-            //playerDiv.innerText = playerBoard[i][j];
 
             cpuDiv.setAttribute('class', 'grid-item');
             cpuDiv.setAttribute('data-coord', `${i},${j}`);
