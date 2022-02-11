@@ -24,7 +24,7 @@ const game = (() => {
         cpuBoard.placeShip(cpuShip1, [0,0], 'vertical');
         cpuBoard.placeShip(cpuShip2, [2,2], 'horizontal');
 
-        renderBoards();
+        renderBoards(playerBoard.board);
     }
 
     function takeTurn(coords) {
@@ -36,12 +36,12 @@ const game = (() => {
         let cpuCoords = cpu.randomAttack(playerBoard);
         updateBoard(playerBoard.board, cpuCoords, false);
 
-        checkWin(playerBoard, cpuBoard);
+        _checkWin(playerBoard, cpuBoard);
     }
 
-    function checkWin(board1, board2) {
-        if(board1.checkAllShipsSunk()) alert('You have lost!!!');
-        else if (board2.checkAllShipsSunk()) alert('You won congrats!!!');
+    function _checkWin(board1, board2) {
+        if(board2.checkAllShipsSunk()) alert('You won congrats!!!');
+        else if (board1.checkAllShipsSunk()) alert('You have lost!!!');
     }
 
     return {
