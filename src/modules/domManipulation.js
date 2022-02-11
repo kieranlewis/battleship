@@ -27,6 +27,21 @@ function renderBoards(playerBoard) {
     }
 }
 
+function renderInitialSetup() {
+    const setupBoardDiv = document.querySelector('.setup-board');
+
+    for(let i = 0; i < 10; i++) {
+        for(let j = 0; j < 10; j++) {
+            const setupDiv = document.createElement('div');
+
+            setupDiv.setAttribute('class', 'grid-item');
+            setupDiv.setAttribute('data-coord', `${i},${j}`);
+
+            setupBoardDiv.appendChild(setupDiv);
+        }
+    }
+}
+
 function updateBoard(gameBoard, coords, player) {
     const [y, x] = coords;
     const div = document.querySelector(`[data-player=${!player}][data-coord="${y},${x}"]`)
@@ -35,4 +50,4 @@ function updateBoard(gameBoard, coords, player) {
     else if(gameBoard[y][x] === 'M') div.classList.add('miss');
 }
 
-export { renderBoards, updateBoard }
+export { renderBoards, updateBoard, renderInitialSetup }
