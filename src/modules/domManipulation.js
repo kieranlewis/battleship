@@ -8,12 +8,14 @@ function renderBoards(playerBoard, cpuBoard) {
             const cpuDiv = document.createElement('div');
 
             playerDiv.setAttribute('class', 'grid-item');
-            playerDiv.setAttribute('data-coord', [i,j]);
-            playerDiv.innerText = playerBoard.board[i][j];
+            playerDiv.setAttribute('data-coord', `${i},${j}`);
+            playerDiv.setAttribute('data-player', true);
+            playerDiv.innerText = playerBoard[i][j];
 
             cpuDiv.setAttribute('class', 'grid-item');
-            cpuDiv.setAttribute('data-coord', [i,j]);
-            cpuDiv.innerText = cpuBoard.board[i][j];
+            cpuDiv.setAttribute('data-coord', `${i},${j}`);
+            cpuDiv.setAttribute('data-player', false);
+            cpuDiv.innerText = cpuBoard[i][j];
 
             playerBoardDiv.appendChild(playerDiv);
             cpuBoardDiv.appendChild(cpuDiv);
@@ -21,8 +23,11 @@ function renderBoards(playerBoard, cpuBoard) {
     }
 }
 
-function updateBoard(gameBoard) {
-
+function updateBoard(gameBoard, coords, player) {
+    const [y, x] = coords;
+    //const div = document.querySelector(`[data-player=${player}][data-coord="${x}.${y}"]`);
+    const div = document.querySelector(`[data-coord="${y},${x}"]`)
+    div.innerText = gameBoard[y][x];
 }
 
-export { renderBoards }
+export { renderBoards, updateBoard }

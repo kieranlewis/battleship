@@ -1,13 +1,13 @@
 import { Gameboard } from "./modules/Gameboard";
 import { Ship } from "./modules/Ship";
 import { Player } from "./modules/Player";
-import { render, renderBoards } from "./modules/domManipulation";
+import { renderBoards, updateBoard } from "./modules/domManipulation";
 
 const game = (() => {
     function init() {
         const playerBoard = Gameboard();
         const cpuBoard = Gameboard();
-        const player1 = Player('Kieran');
+        const player = Player('Kieran');
         const cpu = Player('Computer');
     
         const playerShip1 = Ship(2);
@@ -21,9 +21,13 @@ const game = (() => {
         cpuBoard.placeShip(cpuShip1, [0,0], 'vertical');
         cpuBoard.placeShip(cpuShip2, [2,2], 'horizontal');
 
-        renderBoards(playerBoard, cpuBoard);
+        renderBoards(playerBoard.board, cpuBoard.board);
 
-        //event listeners
+        /* test
+        player.attackEnemy(cpuBoard, [1,1]);
+        console.log(cpuBoard.board);
+        updateBoard(cpuBoard.board, [1,1], true);
+        */
     }
 
     return {

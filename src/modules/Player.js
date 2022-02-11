@@ -3,7 +3,6 @@ const Player = (name) => {
 
     function attackEnemy(gameBoard, coords) {
         gameBoard.receiveAttack(coords);
-        console.log(gameBoard.board);
     }
 
     function randomAttack(gameBoard) {
