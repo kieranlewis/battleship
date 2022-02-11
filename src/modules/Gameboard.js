@@ -19,7 +19,11 @@ const Gameboard = () => {
             //keep track of ship
             const newShip = { ship, coords, alignment };
             _ships.push(newShip);
+            
+            return true;
         }
+
+        return false;
     }
 
     function receiveAttack(coords) {
