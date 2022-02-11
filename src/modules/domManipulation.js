@@ -12,7 +12,7 @@ function renderBoards(playerBoard, cpuBoard) {
             playerDiv.setAttribute('class', 'grid-item');
             playerDiv.setAttribute('data-coord', `${i},${j}`);
             playerDiv.setAttribute('data-player', true);
-            playerDiv.innerText = playerBoard[i][j];
+            //playerDiv.innerText = playerBoard[i][j];
 
             cpuDiv.setAttribute('class', 'grid-item');
             cpuDiv.setAttribute('data-coord', `${i},${j}`);
@@ -20,7 +20,7 @@ function renderBoards(playerBoard, cpuBoard) {
             cpuDiv.addEventListener('click', () => {
                 game.takeTurn([i,j]);
             });
-            cpuDiv.innerText = cpuBoard[i][j];
+            //cpuDiv.innerText = cpuBoard[i][j];
 
             playerBoardDiv.appendChild(playerDiv);
             cpuBoardDiv.appendChild(cpuDiv);

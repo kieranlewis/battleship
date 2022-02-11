@@ -34,18 +34,21 @@ const game = (() => {
     }
 
     function takeTurn(coords) {
-        const [y, x] = coords;
-
         // player attacks cpu
         console.log('You are trying to attack ', coords);
         player.attackEnemy(cpuBoard, coords);
-        console.log(cpuBoard.board);
         updateBoard(cpuBoard.board, coords, true);
 
         // cpu attacks player
         let cpuCoords = cpu.randomAttack(playerBoard);
-        console.log(playerBoard.board);
         updateBoard(playerBoard.board, cpuCoords, false);
+
+        checkWin(playerBoard, cpuBoard);
+    }
+
+    function checkWin(board1, board2) {
+        if(board1.checkAllShipsSunk()) alert('You have lost!!!');
+        else if (board2.checkAllShipsSunk()) alert('You won congrats!!!');
     }
 
     return {
