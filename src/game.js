@@ -24,18 +24,11 @@ const game = (() => {
         cpuBoard.placeShip(cpuShip1, [0,0], 'vertical');
         cpuBoard.placeShip(cpuShip2, [2,2], 'horizontal');
 
-        renderBoards(playerBoard.board, cpuBoard.board);
-
-        /* test
-        player.attackEnemy(cpuBoard, [1,1]);
-        console.log(cpuBoard.board);
-        updateBoard(cpuBoard.board, [1,1], true);
-        */
+        renderBoards();
     }
 
     function takeTurn(coords) {
         // player attacks cpu
-        console.log('You are trying to attack ', coords);
         player.attackEnemy(cpuBoard, coords);
         updateBoard(cpuBoard.board, coords, true);
 
