@@ -1,24 +1,28 @@
-function render(player1Board, player2Board) {
-    const player1BoardDiv = document.querySelector('.player1-board');
-    const player2BoardDiv = document.querySelector('.player2-board');
+function renderBoards(playerBoard, cpuBoard) {
+    const playerBoardDiv = document.querySelector('.player1-board');
+    const cpuBoardDiv = document.querySelector('.player2-board');
 
     for(let i = 0; i < 10; i++) {
         for(let j = 0; j < 10; j++) {
-            const player1Div = document.createElement('div');
-            const player2Div = document.createElement('div');
+            const playerDiv = document.createElement('div');
+            const cpuDiv = document.createElement('div');
 
-            player1Div.setAttribute('class', 'grid-item');
-            player1Div.setAttribute('data-coord', [i,j]);
-            player1Div.innerText = player1Board.board[i][j];
+            playerDiv.setAttribute('class', 'grid-item');
+            playerDiv.setAttribute('data-coord', [i,j]);
+            playerDiv.innerText = playerBoard.board[i][j];
 
-            player2Div.setAttribute('class', 'grid-item');
-            player2Div.setAttribute('data-coord', [i,j]);
-            player2Div.innerText = player2Board.board[i][j];
+            cpuDiv.setAttribute('class', 'grid-item');
+            cpuDiv.setAttribute('data-coord', [i,j]);
+            cpuDiv.innerText = cpuBoard.board[i][j];
 
-            player1BoardDiv.appendChild(player1Div);
-            player2BoardDiv.appendChild(player2Div);
+            playerBoardDiv.appendChild(playerDiv);
+            cpuBoardDiv.appendChild(cpuDiv);
         }
     }
 }
 
-export { render }
+function updateBoard(gameBoard) {
+
+}
+
+export { renderBoards }
