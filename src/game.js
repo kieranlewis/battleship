@@ -4,11 +4,14 @@ import { Player } from "./modules/Player";
 import { renderBoards, updateBoard } from "./modules/domManipulation";
 
 const game = (() => {
+    let player, cpu, playerBoard, cpuBoard;
+
     function init() {
-        const playerBoard = Gameboard();
-        const cpuBoard = Gameboard();
-        const player = Player('Kieran');
-        const cpu = Player('Computer');
+        // initial setup of game
+        playerBoard = Gameboard();
+        cpuBoard = Gameboard();
+        player = Player('Kieran');
+        cpu = Player('Computer');
     
         const playerShip1 = Ship(2);
         const playerShip2 = Ship(3);
@@ -30,8 +33,23 @@ const game = (() => {
         */
     }
 
+    function takeTurn(coords) {
+        const [y, x] = coords;
+
+        // player attacks cpu
+        console.log('You are trying to attack ', coords);
+        player.attackEnemy(cpuBoard, coords);
+        console.log(cpuBoard.board);
+        updateBoard(cpuBoard.board, coords, true);
+
+        // cpu attacks player
+        let cpuCoords = cpu.randomAttack(playerBoard);
+        console.log(playerBoard.board);
+        updateBoard(playerBoard.board, cpuCoords, false);
+    }
+
     return {
-        init
+        init, takeTurn
     }
 })();
 

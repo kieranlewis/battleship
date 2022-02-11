@@ -1,3 +1,5 @@
+import { game } from "../game";
+
 function renderBoards(playerBoard, cpuBoard) {
     const playerBoardDiv = document.querySelector('.player1-board');
     const cpuBoardDiv = document.querySelector('.player2-board');
@@ -15,6 +17,9 @@ function renderBoards(playerBoard, cpuBoard) {
             cpuDiv.setAttribute('class', 'grid-item');
             cpuDiv.setAttribute('data-coord', `${i},${j}`);
             cpuDiv.setAttribute('data-player', false);
+            cpuDiv.addEventListener('click', () => {
+                game.takeTurn([i,j]);
+            });
             cpuDiv.innerText = cpuBoard[i][j];
 
             playerBoardDiv.appendChild(playerDiv);
@@ -25,8 +30,7 @@ function renderBoards(playerBoard, cpuBoard) {
 
 function updateBoard(gameBoard, coords, player) {
     const [y, x] = coords;
-    //const div = document.querySelector(`[data-player=${player}][data-coord="${x}.${y}"]`);
-    const div = document.querySelector(`[data-coord="${y},${x}"]`)
+    const div = document.querySelector(`[data-player=${player}][data-coord="${y},${x}"]`)
     div.innerText = gameBoard[y][x];
 }
 

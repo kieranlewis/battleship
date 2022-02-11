@@ -17,6 +17,8 @@ const Player = (name) => {
 
         _randomCoordsList.push([randomY, randomX]);
         gameBoard.receiveAttack([randomY, randomX]);
+        
+        return [randomY, randomX];
     }
 
     function _beenHit(y, x) {
