@@ -15,17 +15,16 @@ const game = (() => {
 
         const playerShips = [Ship(2), Ship(3), Ship(3), Ship(4), Ship(5)];
         const cpuShips = [Ship(2), Ship(3), Ship(3), Ship(4), Ship(5)];
-
         /*
-        playerBoard.placeShip(playerShip1, [0,0], 'horizontal');
-        playerBoard.placeShip(playerShip2, [2,2], 'vertical');
+        playerBoard.placeShip(playerShips[0], [0,0], 'horizontal');
+        playerBoard.placeShip(playerShips[1], [2,2], 'vertical');
 
-        cpuBoard.placeShip(cpuShip1, [0,0], 'vertical');
-        cpuBoard.placeShip(cpuShip2, [2,2], 'horizontal');*/
-
+        cpuBoard.placeShip(cpuShips[0], [0,0], 'vertical');
+        cpuBoard.placeShip(cpuShips[1], [2,2], 'horizontal');*/
+        
         playerBoard.placeRandomShips(playerShips);
         cpuBoard.placeRandomShips(cpuShips);
-
+        console.log(playerBoard.board, cpuBoard.board);
         renderBoards(playerBoard.board);
     }
 
