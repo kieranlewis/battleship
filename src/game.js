@@ -7,7 +7,7 @@ const game = (() => {
     let player, cpu, playerBoard, cpuBoard;
 
     function init() {
-        // initial setup of game
+        /* initial setup of game
         playerBoard = Gameboard();
         cpuBoard = Gameboard();
         player = Player('Kieran');
@@ -24,6 +24,14 @@ const game = (() => {
         cpuBoard.placeShip(cpuShip1, [0,0], 'vertical');
         cpuBoard.placeShip(cpuShip2, [2,2], 'horizontal');
 
+        renderBoards(playerBoard.board);*/
+
+        playerBoard = Gameboard();
+        cpuBoard = Gameboard();
+        player = Player('Kieran');
+        cpu = Player('Computer');
+
+        
         renderBoards(playerBoard.board);
     }
 

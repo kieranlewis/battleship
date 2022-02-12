@@ -6,12 +6,30 @@
     </head>
     <body>
         <div id="app">
-            <div class="modal">
+            <div class="">
                 <div class="modal-content">
                     <div>
                         <h2>Battleship Setup</h2>
                         <p>Place your ships</p>
-                        <button>Rotate</button>
+                    </div>
+                    <div>
+                        <form>
+                            <div>
+                                <label for="shipX">X:</label>
+                                <input type="number" name="shipX" id="shipX" min="0" required>
+                            </div>
+                            <div>
+                                <label for="shipY">Y:</label>
+                                <input type="number" name="shipY" id="shipY" min="0" required>
+                            </div>
+                            <div>
+                                <p>Alignment:</p>
+                                <input type="radio" name="shipAlignment" id="horizontal">
+                                <label for="horizontal">Horizontal</label>
+                                <input type="radio" name="shipAlignment" id="vertical">
+                                <label for="vertical">Vertical</label>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
