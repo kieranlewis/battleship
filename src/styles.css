@@ -24,6 +24,10 @@ h1 {
   justify-content: center;
 }
 
+.setup-board div:hover {
+  background-color: rgb(142, 252, 142);
+}
+
 .ship {
   background-color: rgb(49, 46, 46);
 }

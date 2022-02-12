@@ -46,6 +46,20 @@ const Gameboard = () => {
         return _ships.every(ship => ship.ship.isSunk())
     }
 
+    function placeRandomShips(ships) {
+        const alignmentArray = ['horizontal', 'vertical'];
+        let randomY, randomX, randomAlignment;
+
+        for(let i = 0; i < 5; i++) {
+            do {
+                randomY = Math.floor(Math.random() * 10);
+                randomX = Math.floor(Math.random() * 10);
+                randomAlignment = Math.round(Math.random())
+                console.log(randomAlignment);
+            } while(!placeShip(ships[i], [randomY, randomX], alignmentArray[randomAlignment]))
+        }
+    }
+
     function _checkShipHit(hitCoords) {
         for(let i = 0; i < _ships.length; i++) {
             const currentShip = _ships[i];
@@ -108,7 +122,7 @@ const Gameboard = () => {
             return board;
         },
 
-        placeShip, receiveAttack, checkAllShipsSunk
+        placeShip, receiveAttack, checkAllShipsSunk, placeRandomShips
     }
 }
 
